@@ -16,6 +16,15 @@ X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random
 model = DecisionTreeRegressor()
 model.fit(X_train, y_train)
 
+# print(X_test.iloc[9])
+#
+#
+# temp = [[7102.00, 1, 1, 1, 60.00, 100, 7.50, 8.12, 1, 2]]
+#
+# print("after ppt")
+# print(model.predict(temp))
 
+# loaded_model = pickle.load(open(filename, 'rb'))
+# result = loaded_model.score(X_test, Y_test)
 
 pickle.dump(model,open('model.pkl','wb'))

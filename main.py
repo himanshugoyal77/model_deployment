@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-model_x = pickle.load(open('new_modal.pkl','rb'))
+model_x = pickle.load(open('model.pkl','rb'))
 
 
 @app.route('/')
@@ -13,8 +13,11 @@ def hello_world():
 
 @app.route("/predict", methods =["POST"])
 def predict():
+
     float_features = [float(x) for x in request.form.values()]
+    print(float_features)
     features = [np.array(float_features)]
+    print(features)
     prediction = model_x.predict(features)
 
     return render_template('index.html', prediction_text = "The % prediction is {}".format(prediction))
